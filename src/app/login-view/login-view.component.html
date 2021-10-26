@@ -1,0 +1,17 @@
+<h2>Please Login</h2>
+
+<p>Username</p>
+
+<input type="text" [(ngModel)]="username" />
+
+<p>Password</p>
+
+<input type="text" class="pw" [(ngModel)]="password" />
+
+<p></p>
+
+<button
+  class="btn btn-primary"
+  (click)="onLoginCick()">Login
+</button>
+<p>{{loginOutput}}</p>

@@ -1,0 +1,29 @@
+h2 {
+  text-align: center;
+  color: #46aaff;
+}
+
+body {
+  background-color: #f1e3b5;
+}
+
+p{
+    text-align: center;
+}
+
+input {
+  width: 9.5%;
+  margin-left: 45%;
+  margin-right: 45%;
+}
+
+input.pw{
+    -webkit-text-security: disc;
+}
+
+button{
+    width:10%;
+    margin-left: 45%;
+    margin-right: 45%;
+}
+
