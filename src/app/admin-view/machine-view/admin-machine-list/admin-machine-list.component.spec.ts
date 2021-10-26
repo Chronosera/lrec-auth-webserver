@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MachineListComponent } from './machine-list.component';
+import { AdminMachineListComponent } from './admin-machine-list.component';
 
 describe('MachineListComponent', () => {
-  let component: MachineListComponent;
-  let fixture: ComponentFixture<MachineListComponent>;
+  let component: AdminMachineListComponent;
+  let fixture: ComponentFixture<AdminMachineListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MachineListComponent ]
+      declarations: [ AdminMachineListComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MachineListComponent);
+    fixture = TestBed.createComponent(AdminMachineListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
