@@ -38,8 +38,7 @@ import { LoginViewComponent } from './login-view/login-view.component';
     NavBarComponent,
     DropdownDirective,
     UserItemComponent,
-    MachineItemComponent
-    SelectedMachineComponent,
+    MachineItemComponent,
     LoginViewComponent
   ],
   imports: [
