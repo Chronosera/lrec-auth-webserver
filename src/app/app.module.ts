@@ -12,6 +12,13 @@ import { MachineListComponent } from './user-view/machine-list/machine-list.comp
 import { QuizViewComponent } from './user-view/quiz-view/quiz-view.component';
 import { QuizListComponent } from './user-view/quiz-view/quiz-list/quiz-list.component';
 import { SelectedMachineComponent } from './admin-view/machine-view/selected-machine/selected-machine.component';
+import { AdminMachineListComponent } from './admin-view/machine-view/admin-machine-list/admin-machine-list.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { DropdownDirective } from './shared/dropdown.directive';
+import { AuthGaurd } from './auth-gaurd.service';
+import { UserItemComponent } from './admin-view/user-list/user-item/user-item.component';
+import { MachineItemComponent } from './admin-view/machine-view/admin-machine-list/machine-item/machine-item.component';
+
 
 @NgModule({
   declarations: [
@@ -24,13 +31,18 @@ import { SelectedMachineComponent } from './admin-view/machine-view/selected-mac
     MachineListComponent,
     QuizViewComponent,
     QuizListComponent,
-    SelectedMachineComponent
+    SelectedMachineComponent,
+    AdminMachineListComponent,
+    NavBarComponent,
+    DropdownDirective,
+    UserItemComponent,
+    MachineItemComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [AuthGaurd],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
