@@ -7,5 +7,5 @@ import { AfterViewInit, Component } from '@angular/core';
   
 })
 export class AppComponent {
- 
+  title = 'lrec-auth-webserver';
 }
