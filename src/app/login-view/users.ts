@@ -22,10 +22,23 @@ let user3: User = {
   isAdmin: false
 }
 
+let user4: User = {
+  username: 'user',
+  password: '123',
+  isAdmin: false
+}
+
+let user5: User = {
+  username: 'admin',
+  password: '123',
+  isAdmin: true
+}
+
 
 
 export let users: User[] = [];
 users.push(user1);
 users.push(user2);
 users.push(user3);
-
+users.push(user4);
+users.push(user5);
