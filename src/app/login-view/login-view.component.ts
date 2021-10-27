@@ -1,4 +1,6 @@
+import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router'
 import { users } from './users'
 
 @Component({
@@ -9,13 +11,13 @@ import { users } from './users'
 })
 export class LoginViewComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
-  username = ''
-  password = '';
-  authenticate = false;
-  loginOutput = '';
-
+  username : string = ''
+  password : string = '';
+  authenticate : boolean = false;
+  isAdmin : boolean = false;
+  loginOutput : string = '';
 
   ngOnInit(): void {
   }
@@ -24,6 +26,7 @@ export class LoginViewComponent implements OnInit {
     for (let i = 0; i < users.length; i++) {
       if (users[i].username == username && users[i].password == password) {
         this.authenticate = true;
+        this.isAdmin = users[i].isAdmin;
         break;
       }
     }
@@ -34,7 +37,15 @@ export class LoginViewComponent implements OnInit {
     this.checkUsernamePassword(this.username, this.password);
 
     if (this.authenticate) {
-      this.loginOutput = 'LOGIN SUCCESSFUL';
+
+      if (this.isAdmin) {
+        this.router.navigate(['/adminView']);
+      }
+
+      else {
+        this.router.navigate(['/userView']);
+      }
+
     }
     else {
       this.loginOutput = 'INCORRECT USERNAME OR PASSWORD';
