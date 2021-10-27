@@ -16,11 +16,12 @@ import { SelectedMachineComponent } from './admin-view/machine-view/selected-mac
 import { AdminMachineListComponent } from './admin-view/machine-view/admin-machine-list/admin-machine-list.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { DropdownDirective } from './shared/dropdown.directive';
-import { AuthGaurd } from './auth-gaurd.service';
+import { AuthGuard } from './auth-guard.service';
 import { UserItemComponent } from './admin-view/user-list/user-item/user-item.component';
 import { MachineItemComponent } from './admin-view/machine-view/admin-machine-list/machine-item/machine-item.component';
 import { LoginViewComponent } from './login-view/login-view.component';
 import { QuizComponent } from './user-view/quiz-view/quiz/quiz.component';
+import { AuthService } from './auth.service';
 
 
 @NgModule({
@@ -41,14 +42,14 @@ import { QuizComponent } from './user-view/quiz-view/quiz/quiz.component';
     UserItemComponent,
     MachineItemComponent,
     LoginViewComponent,
-    QuizComponent
+    QuizComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule
   ],
-  providers: [AuthGaurd],
+  providers: [AuthGuard, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
