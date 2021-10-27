@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./quiz-view.component.css']
 })
 export class QuizViewComponent implements OnInit {
-
+  isAdmin = false;
   constructor() { }
 
   ngOnInit(): void {

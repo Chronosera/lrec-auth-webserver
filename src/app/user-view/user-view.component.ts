@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-view.component.css']
 })
 export class UserViewComponent implements OnInit {
-
+  isAdmin = false;
   constructor() { }
 
   ngOnInit(): void {
