@@ -20,6 +20,7 @@ import { AuthGaurd } from './auth-gaurd.service';
 import { UserItemComponent } from './admin-view/user-list/user-item/user-item.component';
 import { MachineItemComponent } from './admin-view/machine-view/admin-machine-list/machine-item/machine-item.component';
 import { LoginViewComponent } from './login-view/login-view.component';
+import { QuizComponent } from './user-view/quiz-view/quiz/quiz.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { LoginViewComponent } from './login-view/login-view.component';
     DropdownDirective,
     UserItemComponent,
     MachineItemComponent,
-    LoginViewComponent
+    LoginViewComponent,
+    QuizComponent
   ],
   imports: [
     BrowserModule,
