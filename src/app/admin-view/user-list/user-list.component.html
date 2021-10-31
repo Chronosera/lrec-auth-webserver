@@ -1,2 +1,20 @@
-<p>user-list works!</p>
-<app-user-item></app-user-item>
+<mat-form-field>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Search..." #input>
+</mat-form-field>
+
+<mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <ng-container matColumnDef="{{column}}" *ngFor="let column of displayedColumns">
+    <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+    <td mat-cell *matCellDef="let user"> {{user[column]}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let Users; columns: displayedColumns;" class="userInfoRow"></tr>
+
+  <!--No Values Match Search-->
+  <tr class="mat-row" *matNoDataRow>
+    <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+  </tr>
+</mat-table>
+<app-user-item>
+</app-user-item>
