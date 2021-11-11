@@ -1,9 +1,11 @@
+// Creating interface for test users. Users must have username, and admin status.
 export interface User {
   username: string;
   password: string;
   isAdmin: boolean;
 }
 
+// Creating Users
 let user1: User = {
   username: 'dulesich',
   password: '123456',
@@ -23,7 +25,7 @@ let user3: User = {
 }
 
 
-
+// Adding Users to Array.
 export let users: User[] = [];
 users.push(user1);
 users.push(user2);

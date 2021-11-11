@@ -1,0 +1,2 @@
+1. Bootstrap isn't working properly with some of the components.
+2. When reading RFID card the decoding of the binary value ins't the expected value.
