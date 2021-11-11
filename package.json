@@ -21,7 +21,10 @@
     "@angular/platform-browser-dynamic": "^12.2.12",
     "@angular/router": "^12.2.12",
     "bootstrap": "^3.4.1",
+    "cors": "2.8.5",
+    "express": "4.14.1",
     "jquery": "^3.6.0",
+    "mysql": "2.18.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
@@ -39,5 +42,17 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
     "typescript": "~4.3.5"
-  }
+  },
+  "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.0.",
+  "main": "ServerCon.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chronosera/lrec-auth-webserver.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Chronosera/lrec-auth-webserver/issues"
+  },
+  "homepage": "https://github.com/Chronosera/lrec-auth-webserver#readme"
 }
