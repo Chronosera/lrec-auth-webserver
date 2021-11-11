@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./machine-view.component.css']
 })
 export class MachineViewComponent implements OnInit {
-
+  isAdmin = true;
   constructor() { }
 
   ngOnInit(): void {

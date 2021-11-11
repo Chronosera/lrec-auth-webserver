@@ -1,6 +1,7 @@
 import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router'
+import { AuthService } from '../auth.service';
 import { users } from './users'
 
 @Component({
@@ -11,7 +12,7 @@ import { users } from './users'
 })
 export class LoginViewComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private authService: AuthService) { }
 
   // Declaring variables to store current User information
   username : string = ''
@@ -49,6 +50,7 @@ export class LoginViewComponent implements OnInit {
     if (this.authenticate) {
 
       // If the user is an admin then route user to admin view.
+      this.onLogin();
       if (this.isAdmin) {
         this.router.navigate(['/adminView']);
       }
@@ -64,6 +66,15 @@ export class LoginViewComponent implements OnInit {
     else {
       this.loginOutput = 'INCORRECT USERNAME OR PASSWORD';
     }
+  }
+
+  onLogin() {
+    this.authService.login();
+    console.log("authservice loggedin");
+  }
+
+  onLogout() {
+    this.authService.logout();
   }
 
 }

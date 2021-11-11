@@ -1,2 +1,31 @@
-<p>user-list works!</p>
-<app-user-item></app-user-item>
+<!--Search Bar Input Field-->
+<mat-form-field>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Search..." #input>
+</mat-form-field>
+
+
+<!--Table Creation.
+dataSource = temp values for visual Testing.-->
+<mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  
+  <!--Columns for each value in displayedColumns array
+  Also defines header and cell name based on values in displayedColumns array.-->
+  <ng-container matColumnDef="{{column}}" *ngFor="let column of displayedColumns">
+    <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+    <td mat-cell *matCellDef="let user"> {{user[column]}} </td>
+  </ng-container>
+
+  <!--Row Defition and data generation.
+  Uses Users from dataSource and existing columns to match where data should go.-->
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let Users; columns: displayedColumns;" class="userInfoRow"></tr>
+
+  <!--No Values Match Search Input-->
+  <tr class="mat-row" *matNoDataRow>
+    <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+  </tr>
+</mat-table>
+<!--This class is for when the user-item is implemented eventually.-->
+<app-user-item>
+</app-user-item>

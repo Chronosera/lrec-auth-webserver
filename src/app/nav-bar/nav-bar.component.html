@@ -5,23 +5,21 @@
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li> <button (click)="isAdmin =!isAdmin">Toggle dropdown version</button></li>
-        <li> <button (click)="isLoggedin =!isLoggedin">Toggle logged in</button></li>
       </ul>
       <ul class="navbar navbar-nav navbar-right">
-        <li *ngIf="isAdmin && isLoggedin" class="dropdown" appDropdown>
+        <li *ngIf="isAdmin" class="dropdown" appDropdown>
           <a class="dropdown-toggle" role="button">Manage <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="/adminView">Manage users</a></li>
-            <li><a href="/machineView">Manage machines</a></li>
+            <li><a *ngIf="currentComponent == 'machineView'" role="button" (click)="adminViewRoute()">Manage users</a></li>
+            <li><a *ngIf="currentComponent == 'adminView'" role="button" (click)="machineViewRoute()">Manage machines</a></li>
             <li><a href="/#">Logout</a></li>
           </ul>
         </li>
         <li *ngIf="!isAdmin" class="dropdown" appDropdown>
           <a class="dropdown-toggle" role="button">Manage <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="/machineList">Machine View</a></li>
-            <li><a href="/quizView">Quiz List</a></li>
+            <li><a *ngIf="currentComponent == 'quizView'" role="button" (click)="machineListRoute()">Machine View</a></li>
+            <li><a *ngIf="currentComponent == 'userView'" role="button" (click)="quizListRoute()">Quiz List</a></li>
             <li><a href="/#">Logout</a></li>
           </ul>
         </li>

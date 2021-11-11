@@ -1,0 +1,36 @@
+mat-table {
+  width: 100%;
+  border:1px thin;
+}
+
+.mat-header-row {
+  border: 1px thin;
+}
+.mat-row .mat-cell {
+  border-bottom: 1px solid;
+  border-top: 1px thin;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.mat-row:hover .mat-cell {
+  border-color: currentColor;
+}
+
+tr{
+  padding: 10px;
+}
+
+.mat-column-RFID, .mat-column-firstName, .mat-column-lastName, .mat-column-useFabA, .mat-column-useFabB, .mat-column-useFabC, .mat-column-useFabD, .mat-column-useFabE, .mat-column-isAdmin, .mat-column-program, .mat-column-teamNumber {
+  padding-right: 10px;
+  text-align:left;
+  vertical-align:middle;
+}
+tr.userInfoRow:hover {
+  background: #d9d9d9;
+}
+
+.row-is-clicked {
+  font-weight: bold;
+  background: #808080 /* grey */
+}

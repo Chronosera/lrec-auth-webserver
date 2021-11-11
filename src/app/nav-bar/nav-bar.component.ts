@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -6,14 +8,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
-  isAdmin = true;
-  isLoggedin = false;
-  constructor() {
+  @Input() isAdmin = false;
+  @Input() currentComponent = "";
+  constructor(private router: Router, private authService: AuthService) {
     this.isAdmin = true;
-    this.isLoggedin = false;
   }
 
   ngOnInit(): void {
+  }
+
+  adminViewRoute() {
+    this.authService.login();
+    this.router.navigate(['/adminView']);
+  }
+  machineViewRoute() {
+    this.authService.login();
+    this.router.navigate(['/machineView']);
+  }
+  quizListRoute() {
+    this.router.navigate(['/quizView']);
+  }
+  machineListRoute() {
+    this.router.navigate(['/userView'])
   }
 
 }

@@ -16,10 +16,34 @@ import { SelectedMachineComponent } from './admin-view/machine-view/selected-mac
 import { AdminMachineListComponent } from './admin-view/machine-view/admin-machine-list/admin-machine-list.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { DropdownDirective } from './shared/dropdown.directive';
-import { AuthGaurd } from './auth-gaurd.service';
+import { AuthGuard } from './auth-guard.service';
 import { UserItemComponent } from './admin-view/user-list/user-item/user-item.component';
 import { MachineItemComponent } from './admin-view/machine-view/admin-machine-list/machine-item/machine-item.component';
 import { LoginViewComponent } from './login-view/login-view.component';
+import { QuizComponent } from './user-view/quiz-view/quiz/quiz.component';
+import { AuthService } from './auth.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+/*Material For Table*/
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatListModule } from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 @NgModule({
@@ -39,14 +63,47 @@ import { LoginViewComponent } from './login-view/login-view.component';
     DropdownDirective,
     UserItemComponent,
     MachineItemComponent,
-    LoginViewComponent
+    LoginViewComponent,
+    QuizComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatInputModule,
+    MatFormFieldModule
   ],
-  providers: [AuthGaurd],
+  exports: [
+
+    MatCheckboxModule,
+
+    MatDividerModule,
+    MatExpansionModule,
+    MatGridListModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
+    MatMenuModule,
+
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatRadioModule,
+
+    MatSelectModule,
+    MatSidenavModule,
+
+    MatSortModule,
+    MatTableModule,
+
+    MatToolbarModule,
+    MatTooltipModule,                                                                                                
+
+    MatFormFieldModule
+  ],
+  providers: [AuthGuard, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
