@@ -1,0 +1,44 @@
+#myInput {
+  background-image: url('/css/searchicon.png'); /* Add a search icon to input */
+  background-position: 10px 12px; /* Position the search icon */
+  background-repeat: no-repeat; /* Do not repeat the icon image */
+  width: auto; /* Full-width */
+  font-size: 16px; /* Increase font-size */
+  border: 1px solid #ddd; /* Add a grey border */
+  margin-bottom: 12px; /* Add some space below the input */
+}
+LeftAlign {
+  width: 100%;
+  /*  margin-left: 45%;
+  margin-right: 45%;*/
+  display: inline-block;
+  float: left;
+  border: none;
+}
+#table-wrapper {
+  position: relative;
+}
+
+
+#table-scroll {
+  height: 400px;
+  overflow: auto;
+}
+
+#table-wrapper table {
+  width: 100%;
+}
+
+  #table-wrapper table * {
+    background: yellow;
+    color: black;
+  }
+
+  #table-wrapper table thead th .text {
+    position: absolute;
+    top: -20px;
+    z-index: 2;
+    height: 20px;
+    width: 35%;
+    border: 1px solid red;
+  }

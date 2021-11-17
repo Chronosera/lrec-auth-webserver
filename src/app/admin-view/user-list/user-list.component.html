@@ -1,2 +1,36 @@
-<p>user-list works!</p>
-<app-user-item></app-user-item>
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+
+<div id="table-wrapepr">
+  <div id="table-scroll">
+    <table class="table table-dark">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Select</th>
+          <th scope="col">ID</th>
+          <th scope="col">RFID</th>
+          <th scope="col">Username</th>
+          <th scope="col">Password</th>
+          <th scope="col">IsAdmin</th>
+          <th scope="col">Machine Access</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class='clickable-row' *ngFor="let user of userList; let i = index;">
+          <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" (change)="sendUser($event,user)"></td>
+          <td>{{user.id}}</td>
+          <td>{{user.rfid}}</td>
+          <td>{{user.username}}</td>
+          <td style="-webkit-text-security: disc;">{{user.password}}</td>
+          <td>{{user.isAdmin}}</td>
+          <td>{{user.machines}}</td>
+          <td><button type="button" id="btn btn-secondary btn-sm" (click)="editUser(user)">Edit</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<span> 
+  <button type="button" class="btn btn-primary btn-sm" (click)="addUser()">Create User</button>
+  <button type="button" class="btn btn-primary btn-sm" (click)="deleteUser()">Delete User</button>
+</span>
+
