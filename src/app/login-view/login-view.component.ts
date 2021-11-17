@@ -2,7 +2,7 @@ import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router'
 import { AuthService } from '../auth.service';
-import { users } from './users'
+import { Users } from './users'
 
 @Component({
   selector: 'app-login-view',
@@ -24,10 +24,10 @@ export class LoginViewComponent implements OnInit {
   }
 
   checkUsernamePassword(username: string, password: string) {
-    for (let i = 0; i < users.length; i++) {
-      if (users[i].username == username && users[i].password == password) {
+    for (let i = 0; i < Users.length; i++) {
+      if (Users[i].username == username && Users[i].password == password) {
         this.authenticate = true;
-        this.isAdmin = users[i].isAdmin;
+        this.isAdmin = Users[i].isAdmin;
         break;
       }
     }

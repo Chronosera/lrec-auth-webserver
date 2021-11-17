@@ -17,17 +17,20 @@ p{
     text-align: center;
 }
 
-input {
+.input {
   width: 9.5%;
   margin-left: 45%;
   margin-right: 45%;
 }
 
-input.pw{
+.inputPW {
+    width: 9.5%;
+    margin-left: 45%;
+    margin-right: 45%;
     -webkit-text-security: disc;
-}
+  }
 
-button{
+#button{
     width:10%;
     margin-left: 45%;
     margin-right: 45%;

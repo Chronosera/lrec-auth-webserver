@@ -4,16 +4,17 @@
 
 <p>Username</p>
 
-<input type="text" [(ngModel)]="username" />
+<input type="text" class="input" [(ngModel)]="username" />
 
 <p>Password</p>
 
-<input type="text" class="pw" [(ngModel)]="password" />
+<input type="text" class="inputPW" [(ngModel)]="password" />
 
 <p></p>
 
 <button
   class="btn btn-primary"
+  id="button"
   (click)="onLoginCick()">Login
 </button>
 <p>{{loginOutput}}</p>
