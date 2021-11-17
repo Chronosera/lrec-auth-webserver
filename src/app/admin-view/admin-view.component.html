@@ -1,11 +1,16 @@
 <app-nav-bar [isAdmin]="isAdmin" [currentComponent]="'adminView'"></app-nav-bar>
-<div class="container">
+<div class="container-fluid">
   <div class="row">
     <div class="col-md-5">
-      <app-user-list></app-user-list>
+      <app-user-list (newItemEvent)="user = $event"></app-user-list>
     </div>
     <div class="col-md-5">
-      <app-selected-user></app-selected-user>
+      <app-selected-user *ngIf="user; else infoText" [item]="user"></app-selected-user>
+      <ng-template #infoText>
+        <p>Please select a user</p>
+      </ng-template>
     </div>
   </div>
 </div>
+
+
