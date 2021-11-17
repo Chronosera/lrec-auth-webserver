@@ -1,1 +1,40 @@
-<p>selected-user works!</p>
+<div>
+  <form [formGroup]="myform" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label for="id">ID</label>
+      <input name="id" type="number" class="form-control" id="id" formControlName="id" placeholder="{{item.id}}" readonly>
+    </div>
+    <div class="form-group">
+      <label for="rfid">RFID</label>
+      <input name="rfid" type="number" class="form-control" id="rfid" formControlName="rfid" placeholder="{{item.rfid}}" value="{{item.rfid}}">
+    </div>
+    <div class="form-group">
+      <label for="username">User name</label>
+      <input type="text" class="form-control" id="username" formControlName="username" placeholder="{{item.username}}">
+    </div>
+    <div class="form-group">
+      <label for="password">password</label>
+      <input type="text" class="form-control" id="password" formControlName="password" placeholder="{{item.password}}">
+    </div>
+    <div class="form-group">
+      <input type="checkbox" class="form-check-input" id="admin" [checked]="item.isAdmin" (change)="changeAdminValue($event)">
+      <label class="form-check-label" for="admin">isAdmin</label>
+    </div>
+
+    <div>
+      <p>Machine List</p>
+    </div>
+
+    <!--Displays all machiens as a checkbox and determins if they are checekd based oon the machinelist file-->
+    <div class="form-check" *ngFor="let machine of machineList">
+      <input type="checkbox" class="form-check-input" (change)="onChange(machine.name , $event)" id="exampleCheck1" [checked]="machine.checked">
+      <label class="form-check-label" for="exampleCheck1"> {{machine.name}}</label>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+<!--Test line to see values of form-->
+<!--<pre>Form values: {{myform.value | json}}</pre>-->
