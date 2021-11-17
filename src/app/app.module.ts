@@ -22,6 +22,8 @@ import { MachineItemComponent } from './admin-view/machine-view/admin-machine-li
 import { LoginViewComponent } from './login-view/login-view.component';
 import { QuizComponent } from './user-view/quiz-view/quiz/quiz.component';
 import { AuthService } from './auth.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 @NgModule({
@@ -49,6 +51,8 @@ import { AuthService } from './auth.service';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule
+  ],
+  exports: [
   ],
   providers: [AuthGuard, AuthService],
   bootstrap: [AppComponent]

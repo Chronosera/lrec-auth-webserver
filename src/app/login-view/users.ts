@@ -1,3 +1,4 @@
+// Creating interface for test users. Users must have username, and admin status.
 export interface User {
   id: number,
   rfid: number,

@@ -18,8 +18,8 @@ export class UserListComponent implements OnInit {
   constructor() {
 
   }
+  ngOnInit() {
 
-  ngOnInit(): void {
   }
 
   //Add a blank user to the Users array
