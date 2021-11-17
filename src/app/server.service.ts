@@ -27,18 +27,18 @@ export class ServerService {
   }
 
   getUsers() {
-    return this.request('GET', `${environment.serverUrl}/event`);
+    return this.request('GET', `${environment.serverUrl}/Users`);
   }
 
   createUser(user) {
-    return this.request('POST', `${environment.serverUrl}/event`, user);
+    return this.request('POST', `${environment.serverUrl}/AddUsers`, user);
   }
 
   updateUser(user) {
-    return this.request('PUT', `${environment.serverUrl}/event/${user.RFID}`, user);
+    return this.request('PUT', `${environment.serverUrl}/User/${user.RFID}`, user);
   }
 
   deleteUser(user) {
-    return this.request('DELETE', `${environment.serverUrl}/event/${user.RFID}`);
+    return this.request('DELETE', `${environment.serverUrl}/Users/${user.RFID}`);
   }
 }

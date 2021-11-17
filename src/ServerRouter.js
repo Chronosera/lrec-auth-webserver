@@ -1,9 +1,10 @@
 const express = require('express');
 
+/*Creation of the Router Object*/
 function createRouter(db) {
   const router = express.Router();
 
-  // the routes are defined here
+  /*This Route Adds users to the DB*/
   router.post('/AddUsers', (req, res, next) => {
     db.query(
       'INSERT INTO Users (RFID, firstName, lastName, program, teamNumber, isAdmin, fabAccess) VALUES (?,?,?,?,?,?,?)',
@@ -19,6 +20,7 @@ function createRouter(db) {
     );
   });
 
+  /*This Route is the general Get route to retrieve all info from the DB*/
   router.get('/Users', function (req, res, next) {
     db.query(
       'SELECT * FROM Users',
@@ -33,6 +35,7 @@ function createRouter(db) {
     );
   });
 
+  /*This Route will update existing users information*/
   router.put('/Users/:RFID', function (req, res, next) {
     db.query(
       'UPDATE events SET firstName=?, lastName=?, program=?, teamNumber=?, isAdmin=?, fabAccess=? WHERE RFID=?',
@@ -47,9 +50,10 @@ function createRouter(db) {
     );
   });
 
-  router.delete('/event/:RFID', function (req, res, next) {
+  /*This Route removes users from the DB based on their RFID card number*/
+  router.delete('/Users/:RFID', function (req, res, next) {
     db.query(
-      'DELETE FROM events WHERE id=?',
+      'DELETE FROM Users WHERE RFID=?',
       [req.params.id],
       (error) => {
         if (error) {
