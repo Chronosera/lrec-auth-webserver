@@ -1,0 +1,43 @@
+<h1 mat-dialog-title>Edit Data</h1>
+<div mat-dialog-content>
+  <p>Enter RFID</p>
+  <mat-form-field appearance="fill">
+    <mat-label>RFID</mat-label>
+    <input matInput type="number" [(ngModel)]="data.RFID" />
+  </mat-form-field>
+  <p>Enter First name</p>
+  <mat-form-field appearance="fill">
+    <mat-label>First name</mat-label>
+    <input matInput type="text" [(ngModel)]="data.FirstName" />
+  </mat-form-field>
+  <p>Enter Last name</p>
+  <mat-form-field appearance="fill">
+    <mat-label>Last name</mat-label>
+    <input matInput type="text" [(ngModel)]="data.LastName" />
+  </mat-form-field>
+  <p>Enter Program</p>
+  <mat-form-field appearance="fill">
+    <mat-label>Program</mat-label>
+    <input matInput type="text" [(ngModel)]="data.Program" />
+  </mat-form-field>
+  <p>Enter Team Number</p>
+  <mat-form-field appearance="fill">
+    <mat-label>Team Number #</mat-label>
+    <input matInput type="number" [(ngModel)]="data.TeamNumber" />
+  </mat-form-field>
+  <p>Admin Permissions</p>
+  <mat-form-field appearance="fill">
+    <mat-select>
+      <mat-option value="True">True</mat-option>
+      <mat-option value="False">False</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>
+    Ok
+  </button>
+</div>

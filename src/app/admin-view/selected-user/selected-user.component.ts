@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, SimpleChanges} from '@angular/core';
-import { UserObj, Users } from '../../login-view/users';
+import { Component, OnInit, Input, Output, SimpleChanges, EventEmitter} from '@angular/core';
+import { UserObj, Users } from '../../users';
 import { machines } from '../../shared/list-of-machines';
 import { FormGroup, FormBuilder, FormArray, FormControl } from '@angular/forms';
 
@@ -10,7 +10,7 @@ import { FormGroup, FormBuilder, FormArray, FormControl } from '@angular/forms';
 })
 export class SelectedUserComponent implements OnInit {
   @Input() item: UserObj;
-
+  @Output() changes = new EventEmitter<UserObj>();
   myform: FormGroup;
 
   updatedUser: UserObj;
@@ -23,22 +23,22 @@ export class SelectedUserComponent implements OnInit {
   ngOnInit() {
 
     this.myform = this.fb.group({
-      id: new FormControl,
-      rfid: new FormControl,
-      username: new FormControl,
-      password: new FormControl,
-      isAdmin: new FormControl,
-      selectedMachines: this.fb.array([])
+      RFID: new FormControl,
+      FirstName: new FormControl,
+      LastName: new FormControl,
+      Program: new FormControl,
+      TeamNumber: new FormControl,
+      Admin: new FormControl,
+      Machines: this.fb.array([])
     });
 
-
     this.myform.patchValue({
-      id: this.item.id,
-      rfid: this.item.rfid,
-      username: this.item.username,
-      password: this.item.password,
-      isAdmin: this.item.isAdmin,
-
+      RFID: this.item.RFID,
+      FirstName: this.item.FirstName,
+      LastName: this.item.LastName,
+      Program: this.item.Program,
+      TeamNumber: this.item.TeamNumber,
+      Admin: this.item.Admin,
     })
 
     for (let i = 0; i < this.machineList.length; i++) {
@@ -60,12 +60,13 @@ export class SelectedUserComponent implements OnInit {
 
     //Patch in the new item values
     this.myform.patchValue({
-      id: this.item.id,
-      rfid: this.item.rfid,
-      username: this.item.username,
-      password: this.item.password,
-      isAdmin: this.item.isAdmin,
-      selectedMachines: this.item.machines
+      RFID: this.item.RFID,
+      FirstName: this.item.FirstName,
+      LastName: this.item.LastName,
+      Program: this.item.Program,
+      TeamNumber: this.item.TeamNumber,
+      Admin: this.item.Admin,
+      Machines: this.item.Machines
     })
     //Set the new machine values
     for (let i = 0; i < this.machineList.length; i++) {
@@ -99,15 +100,16 @@ export class SelectedUserComponent implements OnInit {
    */
   onSubmit() {
     //Create new user object based off of the forms values
-    const newUser = new UserObj(this.myform.value.id, this.myform.value.rfid ,this.myform.value.username, this.myform.value.password, this.myform.value.isAdmin, this.myform.controls.selectedMachines.value)
+    const newUser = new UserObj(this.myform.value.RFID, this.myform.value.FirstName ,this.myform.value.LastName, this.myform.value.Program, this.myform.value.TeamNumber,this.myform.value.Admin, this.myform.controls.Machines.value)
 
     //Loop through the users to find the id that matches this submitted users id
-    for (let i = 0; i < Users.length; i++) {
-      if (this.item.id == Users[i].id) {
-        //set the user at [i] to be the new user.
-        Users[i] = newUser;
-      }
-    }
+    //for (let i = 0; i < Users.length; i++) {
+    //  if (this.item.RFID == Users[i].RFID) {
+    //    //set the user at [i] to be the new user.
+    //    Users[i] = newUser;
+    //  }
+    //}
+    this.changes.emit(newUser)
     //Reset the form
     this.myform.reset()
   }

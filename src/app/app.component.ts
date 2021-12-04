@@ -1,4 +1,5 @@
 import { AfterViewInit, Component } from '@angular/core';
+import { Auth0buttonComponent } from './auth0button/auth0button.component';
 
 @Component({
   selector: 'app-root',
