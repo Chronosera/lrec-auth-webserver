@@ -18,8 +18,11 @@ import { FormBuilder } from '@angular/forms';
 
 export class UserListComponent {
   @Output() newItemEvent = new EventEmitter<UserObj>();
+  @Output() show = new EventEmitter<boolean>();
   @Input() changes: UserObj;
-  displayedColumns: string[] = ['select', 'RFID', 'First Name', 'Last Name', 'Program', 'Team Number', 'Admin', 'Machines', 'edit'];
+  showVar = true;
+  temp_RFID;
+  displayedColumns: string[] = ['Delete', 'RFID', 'First Name', 'Last Name', 'Program', 'Team Number', 'Machines', 'edit'];
   dataSource: MatTableDataSource<UserObj>;
   selection = new SelectionModel<UserObj>(true, []);
   selectedUsers: UserObj[] = [];
@@ -34,6 +37,7 @@ export class UserListComponent {
 
   updateUser(body, RFID) {
     this.http.updateUser(body, RFID).subscribe((users) => {
+      console.log(body);
       console.log(users);
       this.getUsersRequestAdd();
     });
@@ -59,7 +63,6 @@ export class UserListComponent {
       LastName: result.LastName,
       Program: result.Program,
       TeamNumber: result.TeamNumber,
-      Admin: false,
       Machines: [""]
 
       }
@@ -71,27 +74,33 @@ export class UserListComponent {
   }
 
   //Loop through the selected user list and the userList and then splice the matching users from the Users array
-  async deleteUser() {
+  async deleteUser(user: UserObj) {
     //loop through selected users and the userList
-    for (let i = this.selection.selected.length - 1; i >= 0; i--) {
-         // splice the data in the datasource at the found id
-      //TODO ADD DELETE REQUEST
-     this.deleteUsersRequest(this.selection.selected[i].RFID)
-    }
+    await this.deleteUsersRequest(user.RFID)
+    
     this.selection.clear();
   }
 
-  async getUsersRequestDelete() {
-    await this.deleteUser();
-    this.dataSource.data = this.http.getUsers().subscribe((users) => {
-      this.dataSource = new MatTableDataSource(users);
-    });
+  async getUsersRequestDelete(user: UserObj) {
+    var result = confirm("Want to delete " + user.FirstName + "?");
+    if (result) {
+      await this.deleteUser(user);
+      await this.delay(35);
+      this.dataSource.data = this.http.getUsers().subscribe((users) => {
+        this.dataSource = new MatTableDataSource(users);
+      });
+    }
+
   }
 
   getUsersRequestAdd() {
     this.dataSource.data = this.http.getUsers().subscribe((users) => {
       this.dataSource = new MatTableDataSource(users);
     });
+  }
+
+  delay(ms: number) {
+  return new Promise(resolve => setTimeout(resolve, ms));
   }
 
   deleteUsersRequest(data) {
@@ -101,10 +110,12 @@ export class UserListComponent {
   }
   ngOnChanges(change: SimpleChanges) {
     if (this.changes != null) {
-      this.updateUser(this.changes, this.changes.RFID);
+      this.updateUser(this.changes, this.temp_RFID);
       this.getUsersRequestAdd();
     }
-
+    console.log(this.showVar)
+    this.showVar = !this.showVar
+    console.log(this.showVar)
   }
 
   applyFilter(event: Event) {
@@ -144,7 +155,11 @@ export class UserListComponent {
         found = false;
       }
     }
+    this.temp_RFID = selectedItem.RFID
     this.newItemEvent.emit(selectedItem)
+    this.showVar = !this.showVar
+    this.show.emit(this.showVar)
+
   }
   /** Whether the number of selected elements matches the total number of rows. */
   isAllSelected() {
@@ -179,16 +194,13 @@ export class UserListComponent {
 })
 
 export class EditModal {
-  isAdmin
 
   constructor(
     public dialogRef: MatDialogRef<EditModal>,
     @Inject(MAT_DIALOG_DATA) public data: UserObj,
     fb: FormBuilder) {
-    this.isAdmin = fb.group({
-      Admin: false,
-    });
-  }
+   
+    }
 
   machineList
   onNoClick(): void {
@@ -202,6 +214,5 @@ export interface UserObj {
   LastName: string;
   Program: string;
   TeamNumber: number;
-  Admin: boolean;
   Machines: Array<string>;
 }

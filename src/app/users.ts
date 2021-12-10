@@ -16,7 +16,6 @@ export class UserObj {
     public LastName: string,
     public Program: string,
     public TeamNumber: number,
-    public Admin: boolean,
     public Machines: Array<string>
   ) { }
 }

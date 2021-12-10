@@ -3,7 +3,7 @@
 
     <div class="form-group">
       <label for="RFID">RFID</label>
-      <input name="RFID" type="number" class="form-control" RFID="RFID" formControlName="RFID" value="{{item.RFID}}">
+      <input name="RFID" type="number" class="form-control" RFID="RFID" formControlName="RFID" value="{{item.RFID}}" readonly>
     </div>
     <div class="form-group">
       <label for="FirstName">FirstName</label>
@@ -20,10 +20,6 @@
     <div class="form-group">
       <label for="TeamNumber">TeamNumber</label>
       <input type="text" class="form-control" id="TeamNumber" formControlName="TeamNumber" value="{{item.TeamNumber}}">
-    </div>
-    <div class="form-group">
-      <input type="checkbox" class="form-check-input" id="admin" [checked]="item.Admin" (change)="changeAdminValue($event)">
-      <label class="form-check-label" for="admin">Admin</label>
     </div>
     <div>
       <p>Machine List</p>

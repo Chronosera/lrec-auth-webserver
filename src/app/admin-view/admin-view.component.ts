@@ -11,6 +11,7 @@ export class AdminViewComponent implements OnInit {
   isAdmin = true;
   user: UserObj;
   changeduser: UserObj;
+  show: boolean;
   constructor () {
     
     
