@@ -4,9 +4,6 @@
     <div class="col-md-8">
       <app-user-list (newItemEvent)="user = $event" [changes]="changeduser" (show)="show = $event"></app-user-list>
     </div>
-    <!--<ng-template #infotext class="col">
-      <app-user-list (newItemEvent)="user = $event" [changes]="changeduser" (show)="show = $event"></app-user-list>
-    </ng-template>-->
     <div class="col-md-3">
       <app-selected-user *ngIf="show;" (changes)="changeduser = $event" (show)="show = $event" [item]="user"></app-selected-user>
     </div>

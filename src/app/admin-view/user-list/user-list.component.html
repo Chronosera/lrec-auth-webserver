@@ -1,16 +1,13 @@
   <mat-form-field appearance="standard">
     <mat-label>Filter</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Vinyl Cutter" style="width: auto;" #input>
   </mat-form-field>
 
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-    <!--- Note that these columns can be defined in any order.
-          The actual rendered columns are set as a property on the row definition"
-     Position Column-->
     <ng-container matColumnDef="Delete">
       <th mat-header-cell *matHeaderCellDef> Delete </th>
-      <td mat-cell *matCellDef="let user"><button (click)="getUsersRequestDelete(user)"> Delete </button> </td>
+      <td mat-cell *matCellDef="let user"><mat-icon (click)="getUsersRequestDelete(user)">delete </mat-icon></td>
     </ng-container>
 
     <ng-container matColumnDef="RFID">
@@ -23,7 +20,6 @@
       <td mat-cell *matCellDef="let user"> {{user.FirstName}} </td>
     </ng-container>
 
-    <!-- last name Column -->
     <ng-container matColumnDef="Last Name">
       <th mat-header-cell *matHeaderCellDef> Last Name </th>
       <td mat-cell *matCellDef="let user"> {{user.LastName}} </td>
@@ -43,13 +39,8 @@
       <td mat-cell *matCellDef="let user"> {{user.Machines}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="edit">
-      <th mat-header-cell *matHeaderCellDef> Edit </th>
-      <td mat-cell *matCellDef="let user"><button type="button" id="btn btn-secondary btn-sm" (click)="editUser(user)">Edit</button></td>
-    </ng-container>
-
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="editUser(row)"></tr>
     <tr class="mat-row" *matNoDataRow>
       <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}" </td>
     </tr>
@@ -57,7 +48,7 @@
 
 
   <span>
+    <br />
     <button type="button" class="btn btn-primary btn-sm" (click)="addUser()">Create User</button>
-    <!--<button type="button" class="btn btn-primary btn-sm" (click)="getUsersRequestDelete()">Delete User</button>-->
   </span>
 

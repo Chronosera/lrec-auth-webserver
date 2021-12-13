@@ -17,12 +17,20 @@ import { FormBuilder } from '@angular/forms';
 
 
 export class UserListComponent {
+  //output to send a user object to the selected user component.
   @Output() newItemEvent = new EventEmitter<UserObj>();
+
+  //used to determine wether or not we show the form
   @Output() show = new EventEmitter<boolean>();
+
+  //value that comes in from the selected user component
   @Input() changes: UserObj;
+
   showVar = true;
   temp_RFID;
-  displayedColumns: string[] = ['Delete', 'RFID', 'First Name', 'Last Name', 'Program', 'Team Number', 'Machines', 'edit'];
+
+  //Columns in the table
+  displayedColumns: string[] = ['Delete', 'RFID', 'First Name', 'Last Name', 'Program', 'Team Number', 'Machines'];
   dataSource: MatTableDataSource<UserObj>;
   selection = new SelectionModel<UserObj>(true, []);
   selectedUsers: UserObj[] = [];
@@ -34,7 +42,7 @@ export class UserListComponent {
     });
   }
 
-
+  //Put request for updating a user
   updateUser(body, RFID) {
     this.http.updateUser(body, RFID).subscribe((users) => {
       console.log(body);
@@ -46,15 +54,14 @@ export class UserListComponent {
 
   //Add a blank user to the Users array
   addUser() {
-    //create dummy object with id incremented by 1 and push into the Users array
-   
 
-    
+    //open up the dialog box for new user creation
     const dialogRef = this.dialog.open(EditModal, {
       width: '250px',
       data: {},
     });
 
+    //after the dialog box is closed set the values in a new user object
     dialogRef.afterClosed().subscribe(result => {
       console.log(result);
       let newUser: UserObj = {
@@ -66,6 +73,7 @@ export class UserListComponent {
       Machines: [""]
 
       }
+      //add the new user to the json file
       this.http.addUser(newUser).subscribe((users) => {
         console.log(users);
         this.getUsersRequestAdd();
@@ -81,11 +89,16 @@ export class UserListComponent {
     this.selection.clear();
   }
 
+  /**
+   * Runs on the delete icon click
+   * @param user The user that was clicked for deletion
+   */
   async getUsersRequestDelete(user: UserObj) {
+    //pop up a confirm dialog box making sure deletion was intended.
     var result = confirm("Want to delete " + user.FirstName + "?");
     if (result) {
       await this.deleteUser(user);
-      await this.delay(35);
+      await this.delay(50);
       this.dataSource.data = this.http.getUsers().subscribe((users) => {
         this.dataSource = new MatTableDataSource(users);
       });
@@ -93,21 +106,33 @@ export class UserListComponent {
 
   }
 
+  /**
+   * Set the data source of the table
+   * */
   getUsersRequestAdd() {
     this.dataSource.data = this.http.getUsers().subscribe((users) => {
       this.dataSource = new MatTableDataSource(users);
     });
   }
 
+  //Set a delay so the table doesnt refresh too fast
   delay(ms: number) {
   return new Promise(resolve => setTimeout(resolve, ms));
   }
-
+  /**
+   * Deletes the user data
+   * @param data body of the data
+   */
   deleteUsersRequest(data) {
     this.http.deleteUser(data).subscribe((users) => {
       console.log(users);
     })
   }
+
+  /**
+   * Runs when there are changes to the @input changes variable
+   * @param change the change that took place in the variable
+   */
   ngOnChanges(change: SimpleChanges) {
     if (this.changes != null) {
       this.updateUser(this.changes, this.temp_RFID);
@@ -123,23 +148,16 @@ export class UserListComponent {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  //dataSourceRefreshDelete = async () => {
-  //  const result = await this.getUsersRequestDelete()
-  //}
 
-  //dataSourceRefreshAdd = async () => {
-  //  const result = await this.getUsersRequest()
-  //}
 
-  getUser
-
-  //emit the selected item to the parent component
+  //emit the selected item to the parent component (AdminView)
   editUser(selectedItem: UserObj) {
     let found = false;
     //add checked checkboxes to the myform array
     if (selectedItem.Machines.length == 0) {
 
     } else {
+      //Find which of the machines are checked
       for (let i = 0; i < this.machineList.length; i++) {
         for (let j = 0; j < selectedItem.Machines.length; j++) {
           if (found == false) {
@@ -156,8 +174,10 @@ export class UserListComponent {
       }
     }
     this.temp_RFID = selectedItem.RFID
+    //send the selected user to the selected user compo
     this.newItemEvent.emit(selectedItem)
     this.showVar = !this.showVar
+    //show the form
     this.show.emit(this.showVar)
 
   }
@@ -177,17 +197,11 @@ export class UserListComponent {
 
     this.selection.select(...this.dataSource.data);
   }
-
-  ///** The label for the checkbox on the passed row */
-  //checkboxLabel(row?: UserObj): string {
-  //  if (!row) {
-  //    return `${this.isAllSelected() ? 'deselect' : 'select'} all`;
-  //  }
-  //  console.log(row.RFID)
-  //  return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.RFID}`;
-  //}
 }
 
+/**
+ *  The Modal dialog that pops up on new user creation
+ * */
 @Component({
   selector: './user-list-modal.component',
   templateUrl: './user-list-modal.component.html',
@@ -208,6 +222,10 @@ export class EditModal {
   }
 }
 
+
+/**
+ *  User object interface
+ * */
 export interface UserObj {
   RFID: number;
   FirstName: string;
