@@ -1,19 +1,114 @@
 {
-  "posts": [
+  "Users": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "RFID": 11112222,
+      "FirstName": "Jackson",
+      "LastName": "Merrick",
+      "Program": "Program 1",
+      "TeamNumber": 1,
+      "Machines": [
+        "CNC Mill",
+        "CNC Lathe",
+        "Plasma Cutter",
+        "Vinyl Cutter",
+        "CNC Router",
+        "Laser Cutter",
+        "Mini Mill",
+        "Vertical Bandsaw",
+        "Miter Box",
+        "Drill Press",
+        "Grinder/Sander",
+        "Robot Field"
+      ]
+    },
+    {
+      "RFID": 12345678,
+      "FirstName": "Jimmy",
+      "LastName": "Hendrix",
+      "Program": "Program 7",
+      "TeamNumber": 1,
+      "Machines": [
+        "CNC Mill",
+        "CNC Lathe",
+        "Plasma Cutter",
+        "Vinyl Cutter",
+        "CNC Router",
+        "Laser Cutter",
+        "Mini Mill",
+        "Vertical Bandsaw",
+        "Miter Box",
+        "Drill Press",
+        "Grinder/Sander",
+        "Robot Field"
+      ]
+    },
+    {
+      "RFID": 987654321,
+      "FirstName": "Frankert",
+      "LastName": "Zappados",
+      "Program": "MuffinMan",
+      "TeamNumber": "9999",
+      "Machines": [
+        "CNC Mill"
+      ]
+    },
+    {
+      "RFID": 111132,
+      "FirstName": "Jackson",
+      "LastName": "Merrick",
+      "Program": "Program 1",
+      "TeamNumber": 1,
+      "Machines": [
+        "CNC Mill",
+        "CNC Lathe",
+        "Plasma Cutter",
+        "Vinyl Cutter",
+        "CNC Router",
+        "Laser Cutter",
+        "Mini Mill",
+        "Vertical Bandsaw",
+        "Miter Box",
+        "Drill Press",
+        "Grinder/Sander",
+        "Robot Field"
+      ]
+    },
+    {
+      "RFID": 454321,
+      "FirstName": "Dommy",
+      "LastName": "Test",
+      "Program": "RRTT",
+      "TeamNumber": null,
+      "Machines": [
+        "CNC Mill",
+        "Drill Press",
+        "Grinder/Sander",
+        "Robot Field"
+      ]
+    },
+    {
+      "RFID": 222222222,
+      "FirstName": "Frankert",
+      "LastName": "Zappados",
+      "Program": "MuffinMan",
+      "TeamNumber": "9999",
+      "Machines": [
+        "CNC Mill"
+      ]
     }
   ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  "Machines": [
+    "CNC Mill",
+    "CNC Lathe",
+    "Plasma Cutter",
+    "Vinyl Cutter",
+    "CNC Router",
+    "Laser Cutter",
+    "Mini Mill",
+    "Vertical Bandsaw",
+    "Miter Box",
+    "Drill Press",
+    "Grinder/Sander",
+    "Robot Field"
+  ]
 }

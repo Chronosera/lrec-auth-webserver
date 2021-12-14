@@ -1,1 +1,0 @@
-1. When edting a user and selecting a checkbox the checkbox will stay selected when selecting a new user.
