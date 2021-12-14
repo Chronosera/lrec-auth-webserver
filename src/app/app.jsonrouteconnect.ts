@@ -3,18 +3,19 @@ import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 @Injectable()
 export class ConfigService {
+  server: string = 'localhost:4201'
   response: any
   errorMessage: string
   constructor(private http: HttpClient) { }
 
   getUsers(): any {
     console.log("Get from UserData.json")
-    return this.http.get('http://localhost:4201/Users');
+    return this.http.get('http://'+ this.server +'/Users');
   }
 
   getMachines(): any {
     console.log("Get Machines from UserData.json")
-    return this.http.get('http://localhost:4201/Machines');
+    return this.http.get('http://' + this.server +'/Machines');
   }
 
   addUser(body) {
@@ -23,7 +24,7 @@ export class ConfigService {
 
     const JSONbody = JSON.stringify(body);
     console.log(JSONbody)
-    return this.http.post('http://localhost:4201/Users', JSONbody, options)
+    return this.http.post('http://' + this.server + '/Users', JSONbody, options)
   }
 
   updateUser(body, RFID) {
@@ -32,11 +33,11 @@ export class ConfigService {
 
     const JSONbody = JSON.stringify(body);
     console.log(JSONbody)
-    return this.http.put('http://localhost:4201/Users/' + RFID, JSONbody, options)
+    return this.http.put('http://' + this.server + '/Users/' + RFID, JSONbody, options)
   }
 
   deleteUser(rfid): any {
     console.log("Delete from UserData.json")
-    return this.http.delete('http://localhost:4201/Users/' + rfid)
+    return this.http.delete('http://' + this.server + '/Users/' + rfid)
   }
 }
