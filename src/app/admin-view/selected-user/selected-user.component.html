@@ -1,40 +1,42 @@
-<div>
+
   <form [formGroup]="myform" (ngSubmit)="onSubmit()">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-8" id="exampleCheck1" >
 
-    <div class="form-group">
-      <label for="id">ID</label>
-      <input name="id" type="number" class="form-control" id="id" formControlName="id" placeholder="{{item.id}}" readonly>
-    </div>
-    <div class="form-group">
-      <label for="rfid">RFID</label>
-      <input name="rfid" type="number" class="form-control" id="rfid" formControlName="rfid" placeholder="{{item.rfid}}" value="{{item.rfid}}">
-    </div>
-    <div class="form-group">
-      <label for="username">User name</label>
-      <input type="text" class="form-control" id="username" formControlName="username" placeholder="{{item.username}}">
-    </div>
-    <div class="form-group">
-      <label for="password">password</label>
-      <input type="text" class="form-control" id="password" formControlName="password" placeholder="{{item.password}}">
-    </div>
-    <div class="form-group">
-      <input type="checkbox" class="form-check-input" id="admin" [checked]="item.isAdmin" (change)="changeAdminValue($event)">
-      <label class="form-check-label" for="admin">isAdmin</label>
-    </div>
+          <mat-form-field class="form-group">
+            <mat-label for="rfid">RFID</mat-label>
+            <input matInput name="rfid" type="number" class="form-control" id="rfid" formControlName="RFID" placeholder="{{item.RFID}}" value="{{item.RFID}}">
+          </mat-form-field>
+          <mat-form-field class="form-group">
+            <mat-label for="firstName">First Name</mat-label>
+            <input matInput type="text" class="form-control" id="firstName" formControlName="FirstName" placeholder="{{item.FirstName}}">
+          </mat-form-field>
+          <mat-form-field class="form-group">
+            <mat-label for="lastName">Last Name</mat-label>
+            <input matInput type="text" class="form-control" id="lastName" formControlName="LastName" placeholder="{{item.LastName}}">
+          </mat-form-field>
+          <mat-form-field class="form-group">
+            <mat-label for="firstName">Program</mat-label>
+            <input matInput type="text" class="form-control" id="program" formControlName="Program" placeholder="{{item.Program}}">
+          </mat-form-field>
+          <mat-form-field class="form-group">
+            <mat-label for="teamNumber">Team number</mat-label>
+            <input matInput type="number" class="form-control" id="teamNumber" formControlName="TeamNumber" placeholder="{{item.TeamNumber}}">
+          </mat-form-field>
+        </div>
+        <div class="col-md-4">
+          <div>
+            <p>Machine List</p>
+          </div>
 
-    <div>
-      <p>Machine List</p>
-    </div>
-
-    <!--Displays all machiens as a checkbox and determins if they are checekd based oon the machinelist file-->
-    <div class="form-check" *ngFor="let machine of machineList">
-      <input type="checkbox" class="form-check-input" (change)="onChange(machine.name , $event)" id="exampleCheck1" [checked]="machine.checked">
-      <label class="form-check-label" for="exampleCheck1"> {{machine.name}}</label>
+          <div class="form-check" *ngFor="let machine of machineList" id="exampleCheck1">
+            <input type="checkbox" class="form-check-input" (change)="onChange(machine.name , $event)" [checked]="machine.checked">
+            <label class="form-check-label" for="exampleCheck1"> {{machine.name}}</label>
+          </div>
+        </div>
+      </div>
     </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
-</div>
-
-<!--Test line to see values of form-->
-<!--<pre>Form values: {{myform.value | json}}</pre>-->

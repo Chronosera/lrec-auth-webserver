@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserObj } from '../login-view/users';
+import { UserObj } from '../users';
+
 
 @Component({
   selector: 'app-admin-view',
@@ -9,7 +10,12 @@ import { UserObj } from '../login-view/users';
 export class AdminViewComponent implements OnInit {
   isAdmin = true;
   user: UserObj;
-  constructor() { }
+  changeduser: UserObj;
+  show: boolean;
+  constructor () {
+    
+    
+  }
 
   ngOnInit(): void {
   }

@@ -1,0 +1,24 @@
+h1 {
+  text-align: center;
+  background-color: #46aaff;
+  color: #ffffff
+}
+
+h2 {
+  text-align: center;
+  color: #46aaff;
+}
+
+body {
+  background-color: #f1e3b5;
+}
+
+p {
+  text-align: center;
+}
+
+#button {
+  width: 10%;
+  margin-left: 45%;
+  margin-right: 45%;
+}

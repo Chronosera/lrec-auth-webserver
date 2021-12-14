@@ -1,11 +1,16 @@
 mat-table {
   width: 100%;
-  border:1px thin;
+  border: 1px thin;
+}
+
+table {
+  width: 100%;
 }
 
 .mat-header-row {
   border: 1px thin;
 }
+
 .mat-row .mat-cell {
   border-bottom: 1px solid;
   border-top: 1px thin;
@@ -17,15 +22,30 @@ mat-table {
   border-color: currentColor;
 }
 
-tr{
+tr {
   padding: 10px;
 }
 
-.mat-column-RFID, .mat-column-firstName, .mat-column-lastName, .mat-column-useFabA, .mat-column-useFabB, .mat-column-useFabC, .mat-column-useFabD, .mat-column-useFabE, .mat-column-isAdmin, .mat-column-program, .mat-column-teamNumber {
+.mat-column-RFID, .mat-column-firstName, .mat-column-lastName, .mat-column-isAdmin, .mat-column-program, .mat-column-teamNumber {
   padding-right: 10px;
-  text-align:left;
-  vertical-align:middle;
+  text-align: left;
+  vertical-align: middle;
 }
+
+.mat-column-Machines {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 28% !important;
+  width: 28% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
 tr.userInfoRow:hover {
   background: #d9d9d9;
 }
@@ -34,6 +54,7 @@ tr.userInfoRow:hover {
   font-weight: bold;
   background: #808080 /* grey */
 }
+
 #myInput {
   background-image: url('/css/searchicon.png'); /* Add a search icon to input */
   background-position: 10px 12px; /* Position the search icon */
@@ -43,6 +64,7 @@ tr.userInfoRow:hover {
   border: 1px solid #ddd; /* Add a grey border */
   margin-bottom: 12px; /* Add some space below the input */
 }
+
 LeftAlign {
   width: 100%;
   /*  margin-left: 45%;
@@ -51,6 +73,7 @@ LeftAlign {
   float: left;
   border: none;
 }
+
 #table-wrapper {
   position: relative;
 }
