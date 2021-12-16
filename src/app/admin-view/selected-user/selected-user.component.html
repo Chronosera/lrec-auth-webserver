@@ -1,42 +1,41 @@
+<form [formGroup]="myform" (ngSubmit)="onSubmit()">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8" id="breakWord" >
 
-  <form [formGroup]="myform" (ngSubmit)="onSubmit()">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-8" id="exampleCheck1" >
-
-          <mat-form-field class="form-group">
-            <mat-label for="rfid">RFID</mat-label>
-            <input matInput name="rfid" type="number" class="form-control" id="rfid" formControlName="RFID" placeholder="{{item.RFID}}" value="{{item.RFID}}" readonly>
-          </mat-form-field>
-          <mat-form-field class="form-group">
-            <mat-label for="firstName">First Name</mat-label>
-            <input matInput type="text" class="form-control" id="firstName" formControlName="FirstName" placeholder="{{item.FirstName}}">
-          </mat-form-field>
-          <mat-form-field class="form-group">
-            <mat-label for="lastName">Last Name</mat-label>
-            <input matInput type="text" class="form-control" id="lastName" formControlName="LastName" placeholder="{{item.LastName}}">
-          </mat-form-field>
-          <mat-form-field class="form-group">
-            <mat-label for="firstName">Program</mat-label>
-            <input matInput type="text" class="form-control" id="program" formControlName="Program" placeholder="{{item.Program}}">
-          </mat-form-field>
-          <mat-form-field class="form-group">
-            <mat-label for="teamNumber">Team number</mat-label>
-            <input matInput type="number" class="form-control" id="teamNumber" formControlName="TeamNumber" placeholder="{{item.TeamNumber}}">
-          </mat-form-field>
+        <mat-form-field class="form-group">
+          <mat-label for="rfid" style="color: #e0e0e0;">RFID</mat-label>
+          <input matInput name="rfid" type="number" class="form-control" id="rfid" formControlName="RFID" placeholder="{{item.RFID}}" value="{{item.RFID}}" readonly>
+        </mat-form-field>
+        <mat-form-field class="form-group">
+          <mat-label for="firstName" style="color: #e0e0e0;">First Name</mat-label>
+          <input matInput type="text" class="form-control" id="firstName" formControlName="FirstName" placeholder="{{item.FirstName}}">
+        </mat-form-field>
+        <mat-form-field class="form-group">
+          <mat-label for="lastName" style="color: #e0e0e0;">Last Name</mat-label>
+          <input matInput type="text" class="form-control" id="lastName" formControlName="LastName" placeholder="{{item.LastName}}">
+        </mat-form-field>
+        <mat-form-field class="form-group">
+          <mat-label for="firstName" style="color: #e0e0e0;">Program</mat-label>
+          <input matInput type="text" class="form-control" id="program" formControlName="Program" placeholder="{{item.Program}}">
+        </mat-form-field>
+        <mat-form-field class="form-group">
+          <mat-label for="teamNumber" style="color: #e0e0e0;">Team number</mat-label>
+          <input matInput type="number" class="form-control" id="teamNumber" formControlName="TeamNumber" placeholder="{{item.TeamNumber}}">
+        </mat-form-field>
+      </div>
+      <div class="col-md-4">
+        <div>
+          <p>Machine List</p>
         </div>
-        <div class="col-md-4">
-          <div>
-            <p>Machine List</p>
-          </div>
 
-          <div class="form-check" *ngFor="let machine of machineList" id="exampleCheck1">
-            <input type="checkbox" class="form-check-input" (change)="onChange(machine.name , $event)" [checked]="machine.checked">
-            <label class="form-check-label" for="exampleCheck1"> {{machine.name}}</label>
-          </div>
+        <div class="form-check" *ngFor="let machine of machineList" id="breakWord">
+          <input type="checkbox" class="form-check-input" (change)="onChange(machine.name , $event)" [checked]="machine.checked">
+          <label class="form-check-label" for="breakWord"> {{machine.name}}</label>
         </div>
       </div>
     </div>
+  </div>
 
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

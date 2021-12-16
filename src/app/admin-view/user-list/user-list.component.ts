@@ -30,7 +30,7 @@ export class UserListComponent {
   temp_RFID;
 
   //Columns in the table
-  displayedColumns: string[] = ['Delete', 'RFID', 'First Name', 'Last Name', 'Program', 'Team Number', 'Machines'];
+  displayedColumns: string[] = ['Delete', 'RFID', 'First Name', 'Last Name', 'Program', 'Team Number'/*, 'Machines'*/];
   dataSource: MatTableDataSource<UserObj>;
   selection = new SelectionModel<UserObj>(true, []);
   selectedUsers: UserObj[] = [];

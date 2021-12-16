@@ -1,32 +1,25 @@
-mat-table {
-  width: 100%;
-  border: 1px thin;
+.mat-table {
+  width: 65%;
+  background-color: #949494;
+  overflow: hidden;
 }
-
-table {
-  width: 100%;
-}
-
 .mat-header-row {
   border: 1px thin;
+  margin: 0px;
 }
 
 .mat-row .mat-cell {
   border-bottom: 1px solid;
   border-top: 1px thin;
   cursor: pointer;
-  white-space: nowrap;
-}
-
-.mat-row:hover .mat-cell {
-  border-color: currentColor;
 }
 
 tr {
   padding: 10px;
 }
 
-.mat-column-RFID, .mat-column-firstName, .mat-column-lastName, .mat-column-isAdmin, .mat-column-program, .mat-column-teamNumber {
+.mat-column {
+  width: 50%;
   padding-right: 10px;
   text-align: left;
   vertical-align: middle;
@@ -38,7 +31,6 @@ tr {
   flex: 0 0 28% !important;
   width: 28% !important;
   overflow-wrap: break-word;
-  word-wrap: break-word;
   word-break: break-word;
   -ms-hyphens: auto;
   -moz-hyphens: auto;
@@ -46,29 +38,11 @@ tr {
   hyphens: auto;
 }
 
-tr.userInfoRow:hover {
-  background: #d9d9d9;
-}
-
-.row-is-clicked {
-  font-weight: bold;
-  background: #808080 /* grey */
-}
-
-#myInput {
-  background-image: url('/css/searchicon.png'); /* Add a search icon to input */
-  background-position: 10px 12px; /* Position the search icon */
-  background-repeat: no-repeat; /* Do not repeat the icon image */
-  width: auto; /* Full-width */
-  font-size: 16px; /* Increase font-size */
-  border: 1px solid #ddd; /* Add a grey border */
-  margin-bottom: 12px; /* Add some space below the input */
-}
 
 LeftAlign {
   width: 100%;
-  /*  margin-left: 45%;
-  margin-right: 45%;*/
+    margin-left: 45%;
+  margin-right: 45%;
   display: inline-block;
   float: left;
   border: none;
@@ -85,19 +59,40 @@ LeftAlign {
 }
 
 #table-wrapper table {
-  width: 100%;
+  width: 50%
 }
 
-  #table-wrapper table * {
-    background: yellow;
-    color: black;
-  }
+#table-wrapper table * {
+  background: yellow;
+  color: black;
+}
 
-  #table-wrapper table thead th .text {
-    position: absolute;
-    top: -20px;
-    z-index: 2;
-    height: 20px;
-    width: 35%;
-    border: 1px solid red;
-  }
+#table-wrapper table thead th .text {
+  position: absolute;
+  top: -20px;
+  z-index: 2;
+  height: 20px;
+  width: 35%;
+  border: 1px solid red;
+}
+
+.searchBar {
+  color: #e0e0e0;
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+
+::placeholder {
+  color: #e0e0e0;
+  opacity: 1;
+}
+
+::-ms-input-placeholder { 
+  color: #e0e0e0;
+}
+
+::-ms-input-placeholder { 
+  color: #e0e0e0;
+}
+
+

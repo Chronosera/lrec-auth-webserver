@@ -1,54 +1,53 @@
-  <mat-form-field appearance="standard">
-    <mat-label>Filter</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Vinyl Cutter" style="width: auto;" #input>
-  </mat-form-field>
 
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<mat-form-field class="searchBar">
+  <mat-label class="searchBar">Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Vinyl Cutter" style="width: auto; color: #e0e0e0;" #input>
+</mat-form-field>
+<table mat-table [dataSource]="dataSource">
+  <ng-container matColumnDef="Delete">
+    <th mat-header-cell *matHeaderCellDef> Delete </th>
+    <td mat-cell *matCellDef="let user"><mat-icon (click)="getUsersRequestDelete(user)">delete </mat-icon></td>
+  </ng-container>
 
-    <ng-container matColumnDef="Delete">
-      <th mat-header-cell *matHeaderCellDef> Delete </th>
-      <td mat-cell *matCellDef="let user"><mat-icon (click)="getUsersRequestDelete(user)">delete </mat-icon></td>
-    </ng-container>
+  <ng-container matColumnDef="RFID">
+    <th mat-header-cell *matHeaderCellDef> RFID </th>
+    <td mat-cell *matCellDef="let user"> {{user.RFID}} </td>
+  </ng-container>
 
-    <ng-container matColumnDef="RFID">
-      <th mat-header-cell *matHeaderCellDef> RFID </th>
-      <td mat-cell *matCellDef="let user"> {{user.RFID}} </td>
-    </ng-container>
+  <ng-container matColumnDef="First Name">
+    <th mat-header-cell *matHeaderCellDef> First Name </th>
+    <td mat-cell *matCellDef="let user"> {{user.FirstName}} </td>
+  </ng-container>
 
-    <ng-container matColumnDef="First Name">
-      <th mat-header-cell *matHeaderCellDef> First Name </th>
-      <td mat-cell *matCellDef="let user"> {{user.FirstName}} </td>
-    </ng-container>
+  <ng-container matColumnDef="Last Name">
+    <th mat-header-cell *matHeaderCellDef> Last Name </th>
+    <td mat-cell *matCellDef="let user"> {{user.LastName}} </td>
+  </ng-container>
 
-    <ng-container matColumnDef="Last Name">
-      <th mat-header-cell *matHeaderCellDef> Last Name </th>
-      <td mat-cell *matCellDef="let user"> {{user.LastName}} </td>
-    </ng-container>
+  <ng-container matColumnDef="Program">
+    <th mat-header-cell *matHeaderCellDef> Program </th>
+    <td mat-cell *matCellDef="let user"> {{user.Program}} </td>
+  </ng-container>
+  <ng-container matColumnDef="Team Number">
+    <th mat-header-cell *matHeaderCellDef> Team Number </th>
+    <td mat-cell *matCellDef="let user"> {{user.TeamNumber}} </td>
+  </ng-container>
 
-    <ng-container matColumnDef="Program">
-      <th mat-header-cell *matHeaderCellDef> Program </th>
-      <td mat-cell *matCellDef="let user"> {{user.Program}} </td>
-    </ng-container>
-    <ng-container matColumnDef="Team Number">
-      <th mat-header-cell *matHeaderCellDef> Team Number </th>
-      <td mat-cell *matCellDef="let user"> {{user.TeamNumber}} </td>
-    </ng-container>
+  <!--<ng-container class="machinesCell" matColumnDef="Machines">
+    <th mat-header-cell *matHeaderCellDef> Machines </th>
+    <td mat-cell *matCellDef="let user"> {{user.Machines}} </td>
+  </ng-container>-->
 
-    <ng-container matColumnDef="Machines">
-      <th mat-header-cell *matHeaderCellDef> Machines </th>
-      <td mat-cell *matCellDef="let user"> {{user.Machines}} </td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="editUser(row)"></tr>
-    <tr class="mat-row" *matNoDataRow>
-      <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}" </td>
-    </tr>
-  </table>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="editUser(row)"></tr>
+  <tr class="mat-row" *matNoDataRow>
+    <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}" </td>
+  </tr>
+</table>
 
 
-  <span>
-    <br />
-    <button type="button" class="btn btn-primary btn-sm" (click)="addUser()">Create User</button>
-  </span>
+<span>
+  <br />
+  <button type="button" class="btn btn-primary btn-sm" (click)="addUser()">Create User</button>
+</span>
 
