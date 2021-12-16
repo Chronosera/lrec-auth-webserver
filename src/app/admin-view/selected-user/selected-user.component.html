@@ -1,7 +1,6 @@
 <form [formGroup]="myform" (ngSubmit)="onSubmit()">
-  <div class="container-fluid">
     <div class="row">
-      <div class="col-md-8" id="breakWord" >
+      <div class="col-sm-8" id="breakWord" >
 
         <mat-form-field class="form-group">
           <mat-label for="rfid" style="color: #e0e0e0;">RFID</mat-label>
@@ -24,7 +23,7 @@
           <input matInput type="number" class="form-control" id="teamNumber" formControlName="TeamNumber" placeholder="{{item.TeamNumber}}">
         </mat-form-field>
       </div>
-      <div class="col-md-4">
+      <div class="col-sm-4">
         <div>
           <p>Machine List</p>
         </div>
@@ -35,7 +34,6 @@
         </div>
       </div>
     </div>
-  </div>
 
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>

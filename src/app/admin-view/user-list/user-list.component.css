@@ -1,79 +1,28 @@
 .mat-table {
-  width: 65%;
   background-color: #949494;
   overflow: hidden;
 }
-.mat-header-row {
-  border: 1px thin;
-  margin: 0px;
+.mat-header-cell {
+  font-weight: bold;
+  color: black;
+  border-style: solid;
+  border-width: thin;
+  border-color: black;
+  padding-right: 22px;
+  padding-left: 22px;
+  text-align: left;
 }
 
 .mat-row .mat-cell {
-  border-bottom: 1px solid;
-  border-top: 1px thin;
+  /* border-bottom: 1px solid;
+  border-top: 1px thin;*/
   cursor: pointer;
-}
-
-tr {
-  padding: 10px;
-}
-
-.mat-column {
-  width: 50%;
-  padding-right: 10px;
-  text-align: left;
-  vertical-align: middle;
-}
-
-.mat-column-Machines {
-  word-wrap: break-word !important;
-  white-space: unset !important;
-  flex: 0 0 28% !important;
-  width: 28% !important;
-  overflow-wrap: break-word;
-  word-break: break-word;
-  -ms-hyphens: auto;
-  -moz-hyphens: auto;
-  -webkit-hyphens: auto;
-  hyphens: auto;
-}
-
-
-LeftAlign {
-  width: 100%;
-    margin-left: 45%;
-  margin-right: 45%;
-  display: inline-block;
-  float: left;
-  border: none;
-}
-
-#table-wrapper {
-  position: relative;
-}
-
-
-#table-scroll {
-  height: 400px;
-  overflow: auto;
-}
-
-#table-wrapper table {
-  width: 50%
-}
-
-#table-wrapper table * {
-  background: yellow;
-  color: black;
-}
-
-#table-wrapper table thead th .text {
-  position: absolute;
-  top: -20px;
-  z-index: 2;
-  height: 20px;
-  width: 35%;
-  border: 1px solid red;
+  border-style: solid;
+  border-width: thin;
+  padding-right: 22px;
+  padding-left: 22px;
+  border-style: solid;
+  border-color: black;
 }
 
 .searchBar {
@@ -94,5 +43,3 @@ LeftAlign {
 ::-ms-input-placeholder { 
   color: #e0e0e0;
 }
-
-
