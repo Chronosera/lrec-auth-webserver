@@ -6,7 +6,8 @@
   </ng-container>
 
   <ng-template #loggedOut>
-    <button class="button" (click)="auth.loginWithRedirect()">Log in</button>
+    <button class="button" (click)="auth.loginWithRedirect()">Admin Log in</button>
+    <button class="button" (click)="auth.loginWithRedirect()">User Log in</button>
   </ng-template>
 </div>
 <app-admin-view *ngIf="(auth.isAuthenticated$ | async) === true"></app-admin-view>
