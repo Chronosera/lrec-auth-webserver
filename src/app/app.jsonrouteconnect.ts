@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 @Injectable()
 export class ConfigService {
-  server: string = 'localhost:4201'
+  server: string = '192.168.0.240:4201'
   response: any
   errorMessage: string
   constructor(private http: HttpClient) { }
@@ -23,7 +23,6 @@ export class ConfigService {
     const options = { headers: headers };
 
     const JSONbody = JSON.stringify(body);
-    console.log(JSONbody)
     return this.http.post('http://' + this.server + '/Users', JSONbody, options)
   }
 
@@ -32,7 +31,6 @@ export class ConfigService {
     const options = { headers: headers };
 
     const JSONbody = JSON.stringify(body);
-    console.log(JSONbody)
     return this.http.put('http://' + this.server + '/Users/' + RFID, JSONbody, options)
   }
 

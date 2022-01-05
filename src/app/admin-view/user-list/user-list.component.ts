@@ -45,8 +45,6 @@ export class UserListComponent {
   //Put request for updating a user
   updateUser(body, RFID) {
     this.http.updateUser(body, RFID).subscribe((users) => {
-      console.log(body);
-      console.log(users);
       this.getUsersRequestAdd();
     });
   }
@@ -63,7 +61,6 @@ export class UserListComponent {
 
     //after the dialog box is closed set the values in a new user object
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
       let newUser: UserObj = {
       RFID: result.RFID,
       FirstName: result.FirstName,
@@ -75,7 +72,6 @@ export class UserListComponent {
       }
       //add the new user to the json file
       this.http.addUser(newUser).subscribe((users) => {
-        console.log(users);
         this.getUsersRequestAdd();
       });
     });
@@ -125,7 +121,6 @@ export class UserListComponent {
    */
   deleteUsersRequest(data) {
     this.http.deleteUser(data).subscribe((users) => {
-      console.log(users);
     })
   }
 
@@ -138,9 +133,7 @@ export class UserListComponent {
       this.updateUser(this.changes, this.temp_RFID);
       this.getUsersRequestAdd();
     }
-    console.log(this.showVar)
     this.showVar = !this.showVar
-    console.log(this.showVar)
   }
 
   applyFilter(event: Event) {

@@ -4,8 +4,8 @@
       "RFID": 11112222,
       "FirstName": "Jackson",
       "LastName": "Merrick",
-      "Program": "Program 1",
-      "TeamNumber": 1,
+      "Program": "Robotics",
+      "TeamNumber": 5541,
       "Machines": [
         "CNC Mill",
         "CNC Lathe",
@@ -23,10 +23,10 @@
     },
     {
       "RFID": 12345678,
-      "FirstName": "Jimmy",
-      "LastName": "Hendrix",
-      "Program": "Program 7",
-      "TeamNumber": 1,
+      "FirstName": "Ian",
+      "LastName": "Klein",
+      "Program": "CNIT",
+      "TeamNumber": 2114,
       "Machines": [
         "CNC Mill",
         "CNC Lathe",
@@ -44,20 +44,24 @@
     },
     {
       "RFID": 987654321,
-      "FirstName": "Frankert",
-      "LastName": "Zappados",
-      "Program": "MuffinMan",
+      "FirstName": "Frank",
+      "LastName": "Zappa",
+      "Program": "Robotics",
       "TeamNumber": "9999",
       "Machines": [
-        "CNC Mill"
+        "CNC Mill",
+        "Plasma Cutter",
+        "Mini Mill",
+        "Miter Box",
+        "Drill Press"
       ]
     },
     {
       "RFID": 111132,
-      "FirstName": "Jackson",
-      "LastName": "Merrick",
-      "Program": "Program 1",
-      "TeamNumber": 1,
+      "FirstName": "Dylan ",
+      "LastName": "Ulesich",
+      "Program": "Robotics",
+      "TeamNumber": 5541,
       "Machines": [
         "CNC Mill",
         "CNC Lathe",
@@ -74,46 +78,31 @@
       ]
     },
     {
-      "RFID": 454321,
-      "FirstName": "Dommy",
-      "LastName": "Test",
-      "Program": "RRTT",
-      "TeamNumber": 15,
-      "Machines": [
-        "CNC Mill",
-        "Drill Press",
-        "Grinder/Sander",
-        "Robot Field"
-      ]
-    },
-    {
-      "RFID": 222222222,
-      "FirstName": "Frankert",
-      "LastName": "Zappados",
-      "Program": "MuffinMan",
-      "TeamNumber": "9999",
-      "Machines": [
-        "CNC Mill"
-      ]
-    },
-    {
-      "RFID": 55551111,
-      "FirstName": "This",
-      "LastName": "Test",
-      "Program": "Yeet",
-      "TeamNumber": 7984,
-      "Machines": [
-        ""
-      ]
-    },
-    {
       "RFID": 15477474,
-      "FirstName": "John",
-      "LastName": "Harper",
+      "FirstName": "Bryce",
+      "LastName": "Wagner",
       "Program": "CNIT",
       "TeamNumber": 5555,
       "Machines": [
-        ""
+        "Vertical Bandsaw",
+        "Mini Mill",
+        "CNC Router",
+        "Vinyl Cutter",
+        "Plasma Cutter",
+        "CNC Lathe",
+        "CNC Mill",
+        "Miter Box"
+      ]
+    },
+    {
+      "RFID": 5428011,
+      "FirstName": "Tom",
+      "LastName": "Morello",
+      "Program": "CNIT",
+      "TeamNumber": 8155,
+      "Machines": [
+        "CNC Lathe",
+        "Laser Cutter"
       ]
     }
   ],
